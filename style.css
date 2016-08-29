@@ -40,16 +40,16 @@ a{
 	
 	top: 30px;
 	left: 25px;
-	font-family: 'Courier New', monospace;
+	font-family: 'Lucida Console', monospace;
 	font-size: 96px;
-	color: #000000;
+	color: #4e4e55;
 }
 .footer {
   position: bottom;
   right: 0;
   bottom:0;
   left: 0;
-  font-family:'Russo One', sans-serif;
+  font-family:'Impact', sans-serif;
   font-size: 24px;
   color: #4e4e55;
   padding: 1rem;
