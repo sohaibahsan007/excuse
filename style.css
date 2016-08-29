@@ -45,7 +45,7 @@ a{
 	color: #4e4e55;
 }
 .footer {
-  position: bottom;
+  position: absolute;
   right: 0;
   bottom:0;
   left: 0;
@@ -53,6 +53,6 @@ a{
   font-size: 24px;
   color: #4e4e55;
   padding: 1rem;
-  background-image:tech-bytes;
+  background-color:grey;
   text-align: center;
 }
