@@ -1,4 +1,4 @@
-var myName = "TechBytes";
+var myName = "Tech Bytes";
 var grey=[68,85,102];
 var red = [0, 100, 63];
 var orange = [40, 100, 60];
