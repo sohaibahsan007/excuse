@@ -1,0 +1,186 @@
+@import "https://fonts.googleapis.com/css?family=Alegreya+Sans:400,500";
+html {
+  background: #f8f7f2;
+}
+
+.menu, .button {
+  width: 100px;
+  height: 100px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.menu {
+  position: fixed;
+  top: 45px;
+  left: 65px;
+  -webkit-transition: -webkit-transform 1.125s cubic-bezier(0.39, 1.52, 0.46, 0.92);
+  transition: -webkit-transform 1.125s cubic-bezier(0.39, 1.52, 0.46, 0.92);
+  transition: transform 1.125s cubic-bezier(0.39, 1.52, 0.46, 0.92);
+  transition: transform 1.125s cubic-bezier(0.39, 1.52, 0.46, 0.92), -webkit-transform 1.125s cubic-bezier(0.39, 1.52, 0.46, 0.92);
+  -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+  cursor: pointer;
+}
+
+.button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 33%;
+  font: 25px/100px Alegreya Sans, sans-serif;
+  -webkit-transition: -webkit-transform 0.75s cubic-bezier(0.39, 1.52, 0.46, 0.92);
+  transition: -webkit-transform 0.75s cubic-bezier(0.39, 1.52, 0.46, 0.92);
+  transition: transform 0.75s cubic-bezier(0.39, 1.52, 0.46, 0.92);
+  transition: transform 0.75s cubic-bezier(0.39, 1.52, 0.46, 0.92), -webkit-transform 0.75s cubic-bezier(0.39, 1.52, 0.46, 0.92);
+  will-change: transform;
+}
+.button.closed {
+  -webkit-transform: translate3d(0, 0, 0) !important;
+          transform: translate3d(0, 0, 0) !important;
+}
+
+.main {
+  color: #030f01;
+  text-align: center;
+  mix-blend-mode: normal;
+  line-height: 100px;
+  box-shadow: 0 0 0 5px rgba(3, 15, 1, 0.1);
+  -webkit-transition: border-color 0.75s, color 0.75s;
+  transition: border-color 0.75s, color 0.75s;
+  will-change: color, border-color, background;
+}
+.closed .main {
+  color: #f8f7f2;
+  box-shadow: 0 0 0 5px rgba(3, 15, 1, 0);
+}
+
+.home {
+  background-color: #1ba5cd;
+  top: 0%;
+  left: 225%;
+  background-image:url("1472668628_Blogger.svg");
+  -webkit-transition-duration: 0.525s;
+          transition-duration: 0.525s;
+}
+.closed .home {
+  -webkit-transform: translate3d(-225%, -10%, 0) rotate(-180deg);
+          transform: translate3d(-225%, -10%, 0) rotate(-180deg);
+}
+
+.music {
+  background-color: #1ab254;
+  top: 86.10368%;
+  left: 207.873%;
+  background-image: url("1472669234_65-fb_messenger.svg");
+  -webkit-transition-duration: 0.675s;
+          transition-duration: 0.675s;
+}
+.closed .music {
+  -webkit-transform: translate3d(-198.36244%, -89.19384%, 0) rotate(-180deg);
+          transform: translate3d(-198.36244%, -89.19384%, 0) rotate(-180deg);
+}
+
+.messages {
+  background-color: #fec72e;
+  top: 159.09908%;
+  left: 159.09908%;
+  background-image: url("1472668946_Twitter.svg");
+  -webkit-transition-duration: 0.825s;
+          transition-duration: 0.825s;
+}
+.closed .messages {
+  -webkit-transform: translate3d(-153.22122%, -151.00892%, 0) rotate(-180deg);
+          transform: translate3d(-153.22122%, -151.00892%, 0) rotate(-180deg);
+}
+
+.places {
+  background-color: #fa7d39;
+  top: 207.873%;
+  left: 86.10368%;
+  background-image: url("1472668737_Play_Store.svg");
+  -webkit-transition-duration: 0.975s;
+          transition-duration: 0.975s;
+}
+.closed .places {
+  -webkit-transform: translate3d(-91.98154%, -199.78284%, 0) rotate(-180deg);
+          transform: translate3d(-91.98154%, -199.78284%, 0) rotate(-180deg);
+}
+
+.bookmark {
+  background-color: #ee5656;
+  top: 225%;
+  left: 0%;
+  background-image: url("1472668943_Facebook.svg");
+  -webkit-transition-duration: 1.125s;
+          transition-duration: 1.125s;
+}
+.closed .bookmark {
+  -webkit-transform: translate3d(-9.51056%, -228.09016%, 0) rotate(-180deg);
+          transform: translate3d(-9.51056%, -228.09016%, 0) rotate(-180deg);
+}
+.footer {
+  position: absolute;
+  right: 0;
+  bottom:0;
+  left: 0;
+  font-family:'Hind', sans-serif;
+  font-size: 24px;
+  color: #4e4e55;
+  padding: 1rem;
+ 
+  text-align: center;
+}
+/* Colour change */
+@keyframes gradientAnim {
+  0% {
+    background-position: -5% 0;
+  }
+  100% {
+    background-position: 105% 0;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f23064;
+  /* Old browsers */
+  background-image: -moz-linear-gradient(left, #f23064 0%, #ad2ee8 12.5%, #6728d3 25%, #2acbe0 37.5%, #67f230 50%, #67f230 62.5%, #e2e22b 75%, #ce8027 87.5%, #f23064 100%);
+  /* FF3.6-15 */
+  background-image: -webkit-linear-gradient(left, #f23064 0%, #ad2ee8 12.5%, #6728d3 25%, #2acbe0 37.5%, #67f230 50%, #67f230 62.5%, #e2e22b 85.5%, #ce8027 87.5%, #f23064 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background-image: linear-gradient(to right, #f23064 0%, #ad2ee8 12.5%, #6728d3 25%, #2acbe0 37.5%, #67f230 50%, #67f230 62.5%, #e2e22b 75%, #ce8027 87.5%, #f23064 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background-repeat: no-repeat;
+  background-size: 2000% 400%;
+  background-position: 0 0;
+  animation-name: gradientAnim;
+  animation-iteration-count: infinite;
+  animation-delay: 0;
+  animation-duration: 60s;
+  animation-timing-function: linear;
+}
+
+h1 {
+  color: #fff;
+  font-family: 'Segoe UI', 'San Franscisco', Calibri, Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  font-size: calc(100% + 5vmax);
+}
