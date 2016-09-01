@@ -134,49 +134,12 @@ html {
   left: 0;
   font-family:'Hind', sans-serif;
   font-size: 24px;
-  color: #4e4e55;
+  color: #0000;
   padding: 1rem;
  
   text-align: center;
 }
-/* Colour change */
-@keyframes gradientAnim {
-  0% {
-    background-position: -5% 0;
-  }
-  100% {
-    background-position: 105% 0;
-  }
-}
-* {
-  box-sizing: border-box;
-}
 
-body {
-  height: 100vh;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f23064;
-  /* Old browsers */
-  background-image: -moz-linear-gradient(left, #f23064 0%, #ad2ee8 12.5%, #6728d3 25%, #2acbe0 37.5%, #67f230 50%, #67f230 62.5%, #e2e22b 75%, #ce8027 87.5%, #f23064 100%);
-  /* FF3.6-15 */
-  background-image: -webkit-linear-gradient(left, #f23064 0%, #ad2ee8 12.5%, #6728d3 25%, #2acbe0 37.5%, #67f230 50%, #67f230 62.5%, #e2e22b 85.5%, #ce8027 87.5%, #f23064 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background-image: linear-gradient(to right, #f23064 0%, #ad2ee8 12.5%, #6728d3 25%, #2acbe0 37.5%, #67f230 50%, #67f230 62.5%, #e2e22b 75%, #ce8027 87.5%, #f23064 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  background-repeat: no-repeat;
-  background-size: 2000% 400%;
-  background-position: 0 0;
-  animation-name: gradientAnim;
-  animation-iteration-count: infinite;
-  animation-delay: 0;
-  animation-duration: 60s;
-  animation-timing-function: linear;
-}
 
 h1 {
   color: #fff;

@@ -156,8 +156,8 @@ function initEventListeners() {
  
 function updateCanvasDimensions() {
     canvas.attr({
-        height: 2000,
-        width: 2000
+        height: 700,
+        width: 1300
     });
     canvasWidth = canvas.width();
     canvasHeight = canvas.height();
