@@ -1,84 +1,144 @@
-$items : home, music, messages, places, bookmark;
-$colors : #1ba5cd, #1ab254, #fec72e, #fa7d39, #ee5656;
-$white : #f8f7f2;
-$black : #030f01;
+@import "compass/css3";
 
-$size : 100px;
-$spacing : 225%;
+//vars
+$fg:#00bcd4;
+$bg:#673ab7;
+$pi:3.14;
 
-$transition: .75s;
-$easing : cubic-bezier(.39,1.52,.46,.92);
+//config
+$menu-items:4;
+$open-distance:105px;
+$opening-angle:$pi*2;
 
-@import 'https://fonts.googleapis.com/css?family=Alegreya+Sans:400,500';
-
-html { background: $white; }
-
-.menu, .button {
-	width: $size;
-	height: $size;
-	user-select: none;
+body{
+  background:$bg;
+  color:white;
+  text-align:center;
+}
+a{
+  color:inherit;
+}
+h1, h2, h3, h4{
+  margin:0;
+  margin-bottom:10px;
+  margin-top:10px;
+}
+h1{
+  font-size:3em;
+}
+%goo{
+  filter:url('#shadowed-goo');
+  // debug 
+  //background:rgba(255,0,0,0.2);
+}
+%ball{
+  background:$fg;
+  border-radius:100%;
+  width:80px;
+  height:80px;
+  margin-left:-40px;
+  position:absolute;
+  top:20px;
+  color:white;
+  text-align:center;
+  line-height:80px;
+  transform:translate3d(0,0,0);
+  transition:transform ease-out 200ms;
+}
+.menu-open{
+  display:none;
+}
+.menu-item{
+  @extend %ball;
+}
+.hamburger{
+  $width:25px;
+  $height:3px;
+  width:$width;
+  height:$height;
+  background:white;
+  display:block;
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-left:-$width/2;
+  margin-top:-$height/2;
+  transition:transform 200ms;
+}
+$hamburger-spacing:8px;
+.hamburger-1{
+  transform:translate3d(0,-$hamburger-spacing,0);
+}
+.hamburger-2{
+  transform:translate3d(0,0,0);
+}
+.hamburger-3{
+  transform:translate3d(0,$hamburger-spacing,0);
+}
+.menu-open:checked+.menu-open-button{
+  .hamburger-1{
+    transform:translate3d(0,0,0) rotate(45deg); 
+  }
+  .hamburger-2{
+    transform:translate3d(0,0,0) scale(0.1,1);
+  }
+  .hamburger-3{
+    transform:translate3d(0,0,0) rotate(-45deg); 
+  }
+}
+.menu{
+  @extend %goo;
+  $width:650px;
+  $height:150px;
+  position:absolute;
+  left:50%;
+  margin-left:-80px;
+  padding-top:20px;
+  padding-left:80px;
+  width:$width;
+  height:$height;
+  box-sizing:border-box;
+  font-size:20px;
+  text-align:left;
 }
 
-.menu {
-	position: fixed;
-	top: 50px;
-	left: 50px;
-	transition: transform $transition*1.5 $easing;
-	transform: scale3d(1,1,1);
-	transform-origin: top left;	
-	cursor: pointer;
+
+.menu-item{
+  &:hover{
+    background:white;
+    color:$fg;
+  }
+  @for $i from 1 through $menu-items{
+    &:nth-child(#{$i+2}){
+      transition-duration:180ms;
+    }
+  }
 }
 
-.button {
-	position: absolute;
-	top: 0;
-	left: 0;
-	border-radius: 50%;
-	mix-blend-mode: multiply;
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: 33%;
-	font: #{$size/4}/#{$size} Alegreya Sans, sans-serif;
-	transition: transform $transition $easing;
-	will-change: transform; // I'm a little shocked how much this improves performance -- Chrome 52
-
-	
-	&.closed { transform: translate3d(0,0,0) !important; }
+.menu-open-button{
+  @extend %ball;
+  z-index:2;
+  transition-timing-function:cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  transition-duration:400ms;
+  transform:scale(1.1,1.1) translate3d(0,0,0);
+  cursor:pointer;
+}
+.menu-open-button:hover{
+  transform:scale(1.2,1.2) translate3d(0,0,0);
+}
+.menu-open:checked+.menu-open-button{
+  transition-timing-function:linear;
+  transition-duration:200ms;
+  transform:scale(0.8,0.8) translate3d(0,0,0);
 }
 
-.main {
-	color: $black;
-	text-align: center;
-	mix-blend-mode: normal;
-	line-height: $size;
-	box-shadow: 0 0 0 5px rgba($black, .1);
-	transition: border-color $transition, color $transition;
-	will-change: color, border-color, background;
-	
-	.closed & {
-		color: $white;
-		box-shadow: 0 0 0 5px rgba($black, 0);
-	}
-}
-		
-$coords : 0 1, .382683 .92388, .707107 .707107, .92388 .382683, 1 0;
-$closed_coords : 0 -.5, .475528 -.154508, .293893 .404508, -.293893 .404508, -.475528 -.154508;
+.menu-open:checked~.menu-item{
+  transition-timing-function:cubic-bezier(0.165, 0.840, 0.440, 1.000);
+  @for $i from 1 through $menu-items{
 
-@for $i from 1 through length($items) {
-	.#{nth($items, $i)} {
-		$open_x : nth(nth($coords, $i), 2) * $spacing;
-		$open_y : nth(nth($coords, $i), 1) * $spacing;
-		$closed_x : nth(nth($closed_coords, $i), 1) * 10%;
-		$closed_y : nth(nth($closed_coords, $i), 2) * 10%;
-		background-color: nth($colors, $i);	
-		top: $open_y;
-		left: $open_x;
-		background-image: url(http://bennettfeely.com/cdpn/#{nth($items, $i)}.svg);
-		transition-duration: ($i/length($items) * $transition) + $transition/2;
-		
-		.closed & {
-			transform: 
-				translate3d(-$open_x + $closed_x * 2, -$open_y + $closed_y * 2, 0) rotate(-180deg);
-		}
-	}
+    &:nth-child(#{$i+2}){
+      transition-duration:90ms+(100ms*$i);
+      transform:translate3d(110px*$i,0,0);
+    }
+  }
 }

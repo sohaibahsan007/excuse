@@ -1,11 +1,11 @@
-var myName = "Tech Bytes";
-var grey=[68,85,102];
+var myName = "TechBytes";
+
 var red = [0, 100, 63];
 var orange = [40, 100, 60];
 var green = [75, 100, 40];
 var blue = [196, 77, 55];
 var purple = [280, 50, 60];
-var letterColors = [green,red,orange,blue,purple];
+var letterColors = [red, orange, green, blue, purple];
 
 drawName(myName, letterColors);
 
@@ -19,4 +19,3 @@ else
 }
 
 bounceBubbles();
-
