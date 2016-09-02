@@ -199,9 +199,10 @@ body {
           transform: translate3d(-114.40705px, 11.66307px, 0);
 }
 .footer {
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom:0;
+  height:100%px;
   left: 0;
   font-family:'Hind', sans-serif;
   font-size: 24px;

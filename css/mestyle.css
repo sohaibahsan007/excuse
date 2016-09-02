@@ -1,0 +1,26 @@
+body {
+  background: #f1f1f1;
+  color: #222;
+  font-family: Hind', sans-serif;
+}
+
+.wrapper {
+  padding: 5px;
+  width: 800px;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.roles {
+    font-size: 25px;
+    height: 50px;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.roles div {
+    height: 50px;
+    -webkit-transition: margin-top 1s ease-in-out;
+    transition: margin-top 1s ease-in-out;
+}
