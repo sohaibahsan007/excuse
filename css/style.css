@@ -214,3 +214,16 @@ h1 {
   -webkit-transform: translate3d(-114.40705px, 11.66307px, 0);
           transform: translate3d(-114.40705px, 11.66307px, 0);
 }
+.footer {
+  position: bottom;
+  overflow:hidden;
+  right: 0;
+  bottom:0;
+  height:100%px;
+  left: 0;
+  font-family:'Hind', sans-serif;
+  font-size: 20px;
+  color: #4e4e55;
+  padding: 2rem;
+  
+  text-align: center;
